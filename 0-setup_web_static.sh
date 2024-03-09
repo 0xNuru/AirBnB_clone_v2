@@ -20,7 +20,7 @@ sudo chown -R ubuntu /data/
 sudo chgrp -R ubuntu /data/
 
 # Configure nginx to serve content pointed to by symlink to hbnb_static using alias
-sudo sed -i '38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
+sudo sed -i '38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-enabled/default
 
 # Restart server
 sudo service nginx restart
