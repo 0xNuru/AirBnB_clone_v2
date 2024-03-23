@@ -12,6 +12,7 @@ def teardown_session(exception):
     if storage is not None:
         storage.close()
 
+
 @app.route("/states_list", strict_slashes=False)
 def get_states():
     """display a list of all states"""
