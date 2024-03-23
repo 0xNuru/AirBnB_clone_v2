@@ -9,8 +9,7 @@ app = Flask(__name__)
 @app.teardown_appcontext
 def teardown_session(exception):
     """called automatically at the end of each request"""
-    if storage is not None:
-        storage.close()
+    storage.close()
 
 
 @app.route("/states_list", strict_slashes=False)
