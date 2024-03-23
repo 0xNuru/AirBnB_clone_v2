@@ -7,8 +7,10 @@ app = Flask(__name__)
 
 
 @app.teardown_appcontext
-def teardown_session(exception):
-    """called automatically at the end of each request"""
+def close_storage(_=None):
+    """
+    Close storage
+    """
     storage.close()
 
 
