@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
+from os import getenv
 from models.base_model import BaseModel, Base
 from models.city import City
 from sqlalchemy import Column, Integer, String
@@ -14,14 +15,13 @@ class State(BaseModel, Base):
     cities = relationship("City", cascade='all, delete, delete-orphan',
                           backref="state")
 
-    @property
-    def related_cities(self):
-        """ File storage getter attribute """
-        all_objects = storage.all()
-        city_instances = []
-
-        for key, obj in all_objects.items():
-            if isinstance(obj, models.City) and obj.state_id == self.id:
-                city_instances.append(obj)
-
-        return city_instances
+    if getenv('HBNB_TYPE_STORAGE') != "db":
+        @property
+        def cities(self):
+            """ returns list of City instances related to state """
+            from models import storage
+            list_cities = []
+            for city in storage.all(City).values():
+                if city.state_id == self.id:
+                    list_cities.append(city)
+            return list_cities
