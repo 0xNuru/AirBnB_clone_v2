@@ -33,21 +33,28 @@
   display: none;
   background-color: #fafafa;
   width: 100%;
-
   margin-left: -1px;
   margin-top: 8px;
-  padding: 25px 0px;
-
+  padding: 25px 30px 0px;
   border: 1px solid #dddddd;
   border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  max-width: 300px;
+  overflow-x: auto;
+}
+
+.state {
+  font-size: large;
 }
 
 .locations:hover .popover {
   display: inline-block;
 }
 
-.filter_amenities:hover .popover {
+.amenities:hover .popover {
   display: inline-block;
+  margin-left: 250px;
 }
 
 ul {

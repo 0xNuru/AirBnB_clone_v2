@@ -12,21 +12,14 @@ def close_storage(_=None):
     storage.close()
 
 
-# @app.route("/states", strict_slashes=False)
-# def states():
-#     """Displays an HTML page with a list of all States"""
-#     states = storage.all("State")
-#     return render_template("9-states.html", state=states)
+@app.route("/hbnb_filters", strict_slashes=False)
+def hbnb_filters():
+    """Displays the main HBnB filters HTML page."""
+    states = storage.all("State")
+    amenities = storage.all("Amenity")
+    return render_template("10-hbnb_filters.html",
+                           states=states, amenities=amenities)
 
 
-# @app.route("/states/<id>", strict_slashes=False)
-# def states_id(id):
-#     """Displays an HTML page with info about <id>"""
-#     for state in storage.all("State").values():
-#         if state.id == id:
-#             return render_template("9-states.html", state=state)
-#     return render_template("9-states.html")
-
-
-# if __name__ == "__main__":
-#     app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
