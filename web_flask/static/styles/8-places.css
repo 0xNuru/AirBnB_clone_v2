@@ -20,8 +20,8 @@ article {
   margin: 20px;
   border: 1px solid #ff5a5f;
   border-radius: 4px;
-  max-height: 500px;
-  overflow-y: auto;
+  max-height: 650px;
+  overflow-x: auto;
 }
 
 .headline {
@@ -95,9 +95,10 @@ h1 {
 }
 
 article h2 {
-  font-size: 30px;
+  font-size: 25px;
   margin: 10px auto;
   padding: 0px;
+  margin-right: 100px;
 }
 
 .guest_icon {

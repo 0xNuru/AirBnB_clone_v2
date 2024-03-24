@@ -12,9 +12,9 @@ from models.review import Review
 association_table = Table(
         "place_amenity",
         Base.metadata,
-        Column("place.id", String(60), ForeignKey("places.id"),
+        Column("place_id", String(60), ForeignKey("places.id"),
             nullable=False, primary_key=True),
-        Column("amenity.id", String(60), ForeignKey("amenities.id"),
+        Column("amenity_id", String(60), ForeignKey("amenities.id"),
             nullable=False, primary_key=True)
         )
 
